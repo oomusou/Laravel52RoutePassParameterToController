@@ -6,8 +6,8 @@ use App\Http\Requests;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index($viewName)
     {
-        return view('Welcome');
+        return view($viewName);
     }
 }
