@@ -11,11 +11,20 @@
 |
 */
 
+use App\Http\Controllers\HomeController;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/welcome', [
-    'as'   => 'Welcome',
-    'uses' => 'HomeController@index'
+    'as' => 'Welcome', function () {
+        return App::make(HomeController::class)->index('Welcome');
+    }
+]);
+
+Route::get('/helloworld', [
+    'as' => 'HelloWorld', function () {
+        return App::make(HomeController::class)->index('HelloWorld');
+    }
 ]);
